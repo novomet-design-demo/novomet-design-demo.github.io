@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Автоматизированная система удалённого контроля и управления наземным оборудованием скважин
+		</title>
+		<link href="css/style.css" rel="stylesheet">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+		<script>
+			$(function() {
+				$('#header_text').css({marginLeft: $("header img").width()+6});
+			});
+			$(window).resize(function(){
+				
+				$('#header_text').css({margin: '0 0 0 '+$("header img").width()});
+				if($(window).width()>=900){
+					$('aside').css({display: 'inline-block', position: 'relative'});
+				}
+				if($(window).width()<900 & $(window).width()>=480){
+					if($('aside').css('display')=='none'){
+						$('aside').css({display: 'none', position: 'relative'});
+					}
+					else if($('aside').css('display')=='inline-block' || $('aside').css('display')=='block'){
+						$('aside').css({display: 'inline-block', position: 'absolute'});
+					}
+				}
+				if($(window).width()<480){
+					$('aside').css({display: 'block', position: 'relative'});
+				}
+			});
+			
+			function select(item){
+				$('aside div').removeClass('selected');
+				$(item).addClass('selected');
+			}
+			function leftMenuItemsDisplaying(block, arrow){
+				if($(block).attr('display')=='show'){
+					$(block).css('display', 'none');
+					$(block).attr('display', 'hide');
+					$(arrow).find('.arrow').removeClass('visible');
+					$(arrow).find('.arrow').addClass('hidden');
+				}
+				else if($(block).attr('display')=='hide'){
+					$(block).css('display', 'inline-block');
+					$(block).attr('display', 'show');
+					$(arrow).find('.arrow').removeClass('hidden');
+					$(arrow).find('.arrow').addClass('visible');
+				}
+			}
+			function leftMenuDisplaying(){
+				if($('aside').css('display')=='none'){
+					$('aside').css({display: 'inline-block', position: 'absolute'});
+				}
+				else if($('aside').css('display')=='inline-block' || $('aside').css('display')=='block'){
+					$('aside').css({display: 'none', position: 'relative'});
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id='content'>
+			<header>
+				
+					<div class="header_content"><img alt="logo" src="img/logo-novomet.png"/></div>
+					<div class="header_content" id="header_text"><span>Автоматизированная система удалённого контроля и управления наземным оборудованием скважин</span></div>
+				
+			</header>
+			<div id="aside_button" onclick="leftMenuDisplaying()"></div>
+			<aside>
+				<div class="menu-user-block">
+					<div id="username">Имя сотрудника</div>
+					<div id="department">Отдел</div>
+					<div><input type="button" value="Выйти"/></div>
+				</div>
+				<div class="menu-block">
+					<div class="menu-block-title"  onclick="leftMenuItemsDisplaying('#monitoring', this)">
+						<div class="arrow visible"></div><div class="block-title-text">Мониторинг</div>
+						<div class="status">
+							<div class="error">003</div><div class="warning">02</div><div class="work">01</div>
+						</div>
+					</div>
+					<div class="menu-block-content" id="monitoring" display="show">
+						<div class="link" onclick="select(this)">Таблица</div>
+						<div class="link" onclick="select(this)">Карта</div>							
+					</div>
+				</div>
+				<div class="menu-block">
+					<div class="menu-block-title" onclick="leftMenuItemsDisplaying('#analytics', this)">
+						<div class="arrow visible"></div><div class="block-title-text">Аналитика</div>
+					</div>
+					<div class="menu-block-content" id="analytics" display="show">
+						<div class="link" onclick="select(this)">Отчеты</div>
+						<div class="link" onclick="select(this)">OLAP</div>							
+					</div>
+				</div>
+				<div class="menu-block">
+					<div class="menu-block-title" onclick="leftMenuItemsDisplaying('#settings', this)"><div class="arrow visible"></div><div class="block-title-text">Настройки</div></div>
+					<div class="menu-block-content" id="settings" display="show">
+						<div class="link" onclick="select(this)">Общие настройки</div>
+						<div class="link" onclick="select(this)">Параметры объектов</div>							
+					</div>
+				</div>
+				<div class="menu-block">
+					<div class="menu-block-title" onclick="leftMenuItemsDisplaying('#guide', this)"><div class="arrow visible"></div><div class="block-title-text">Справочники</div></div>
+					<div class="menu-block-content" id="guide" display="show">
+						<div class="link" onclick="select(this)">Скважины</div>	
+						<div class="link" onclick="select(this)">Параметры измерений</div>				
+					</div>
+				</div>
+				
+			</aside>
+			<article>
+				<div class="page_content">
+					<div>
+						<table id="table_well">
+							<tr class="table_header">
+								<td>Компания</td>
+								<td>Месторождение</td>
+								<td>Куст</td>
+								<td>Скважина</td>
+								<td>Состояние</td>
+							</tr>
+							<tr class="table_row odd">
+								<td>Тест</td>
+								<td>Тест</td>
+								<td>Тест</td>
+								<td>Тест</td>
+								<td>Тест</td>
+							</tr>
+							<tr class="table_row even">
+								<td>Тест 1</td>
+								<td>Тест 1</td>
+								<td>Тест 1</td>
+								<td>Тест 1</td>
+								<td>Тест 1</td>
+							</tr>
+							<tr class="table_row odd">
+								<td>Тест 2</td>
+								<td>Тест 2</td>
+								<td>Тест 2</td>
+								<td>Тест 2</td>
+								<td>Тест 2</td>
+							</tr>
+							<tr class="table_row even">
+								<td>Тест 3</td>
+								<td>Тест 3</td>
+								<td>Тест 3</td>
+								<td>Тест 3</td>
+								<td>Тест 3</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</article>
+		</div>
+	</body>
+</html>
