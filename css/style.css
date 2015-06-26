@@ -109,6 +109,7 @@ aside ul{
 	color: rgb(78,150,209);
 	padding-bottom: 2px;
 	cursor: pointer;
+	padding-left: 6px;
 }
 
 .menu-block-content{
@@ -223,7 +224,7 @@ article{
 		top:50%;
 		margin-top: -27px;
 		vertical-align: middle;
-		padding-left: 310px;
+		padding-left: 316px;
 	}
 }
 
@@ -234,7 +235,7 @@ article{
 		top:50%;
 		margin-top: -17px;
 		vertical-align: middle;
-		padding-left: 310px;
+		padding-left: 316px;
 	}
 }
 
@@ -249,7 +250,7 @@ article{
 		top:50%;
 		margin-top: -18px;
 		vertical-align: middle;
-		padding-left: 310px;
+		padding-left: 316px;
 	}
 	aside{
 		display: inline-block !important;
@@ -269,7 +270,7 @@ article{
 		display: inline-block;
 		float: left;
 		height: 54px; 
-		padding-left: 1px;
+		padding-left: 6px;
 		position:absolute; 
 		top:50%;
 		margin-top: -27px;
