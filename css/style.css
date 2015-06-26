@@ -169,13 +169,27 @@ input[type="button"]:hover{
 	background: rgb(160, 215, 46);
 /*	background: #66BB6A;*/
 }
+
+table > tbody > tr.well-success > td {
+	background: rgb(176, 214, 94);
+}
+
 .warning{
 	background: rgb(255, 206,0);
 	/*background: #FFEB3B;*/
 }
+
+table > tbody > tr.well-warning > td {
+	background: rgb(255, 227, 117);
+}
+
 .error{
 	background: rgb(243, 112, 33);
 	/*background: #FF7043;*/
+}
+
+table > tbody > tr.well-danger > td {
+	background: rgb(242, 151, 99);
 }
 
 .block-title-text{
@@ -185,7 +199,7 @@ input[type="button"]:hover{
 }
 
 article{
-	background: rgb(220, 220, 200);
+	background: #F5F7F9;
 	display: inline-block !important;
 	height: 100%;
 }
