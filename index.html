@@ -2,31 +2,42 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Автоматизированная система удалённого контроля и управления наземным оборудованием скважин
 		</title>
 		<link href="css/style.css" rel="stylesheet">
+		<link href="css/bootstrap.css" rel="stylesheet">
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 		<script>
-			$(function() {
-				$('#header_text').css({marginLeft: $("header img").width()+6});
-			});
-			$(window).resize(function(){
-				
-				$('#header_text').css({margin: '0 0 0 '+$("header img").width()});
-				if($(window).width()>=900){
-					$('aside').css({display: 'inline-block', position: 'relative'});
+			$(function() {getContentSize();});
+			function getContentSize(){	
+				setColsSize();
+				$('#content').css({position: 'relative', width: '100%', height: '100%'});
+				if(($(window).height()-$('header').height())>$('#content').height()){
+					$('#content').css({position: 'absolute', width: '100%', height: $(window).height()-$('header').height()});
 				}
-				if($(window).width()<900 & $(window).width()>=480){
+				$('aside').css({height: getHeight()});
+				$('article').css({height: getHeight()});
+				$('#aside_button').css({height: getHeight()});
+			}
+			$(window).resize(function(){
+				var width;
+				if(($(window).height()-$('header').height())>=$('#content').height()){width = $(window).width();}
+				else {width = $(window).width() + 17;}
+				if(width>=768){
+					$('aside').css({display: 'inline-block !important',	height: getHeight(),maxWidth: '100%', position: 'relative',  marginLeft: '0px'});
+					$('#aside_button').css({display: 'none'});
+				}
+				else{
 					if($('aside').css('display')=='none'){
 						$('aside').css({display: 'none', position: 'relative'});
 					}
-					else if($('aside').css('display')=='inline-block' || $('aside').css('display')=='block'){
-						$('aside').css({display: 'inline-block', position: 'absolute'});
+					else if($('aside').css('display')=='block'){
+						$('aside').css({display: 'block', position: 'absolute', marginLeft: $('#aside_button').width(), zIndex: '7', maxWidth: '190px', height: getHeight()});
 					}
+					$('#aside_button').css({display: 'inline-block', height: '100%', position: 'relative'});
 				}
-				if($(window).width()<480){
-					$('aside').css({display: 'block', position: 'relative'});
-				}
+				getContentSize();
 			});
 			
 			function select(item){
@@ -36,122 +47,138 @@
 			function leftMenuItemsDisplaying(block, arrow){
 				if($(block).attr('display')=='show'){
 					$(block).css('display', 'none');
-					$(block).attr('display', 'hide');
+					$(block).attr('display', 'withhold');
 					$(arrow).find('.arrow').removeClass('visible');
-					$(arrow).find('.arrow').addClass('hidden');
+					$(arrow).find('.arrow').addClass('withhold');
 				}
-				else if($(block).attr('display')=='hide'){
+				else if($(block).attr('display')=='withhold'){
 					$(block).css('display', 'inline-block');
 					$(block).attr('display', 'show');
-					$(arrow).find('.arrow').removeClass('hidden');
+					$(arrow).find('.arrow').removeClass('withhold');
 					$(arrow).find('.arrow').addClass('visible');
 				}
+				getContentSize();
 			}
 			function leftMenuDisplaying(){
 				if($('aside').css('display')=='none'){
-					$('aside').css({display: 'inline-block', position: 'absolute'});
+					$('aside').css({display: 'block', position: 'absolute', marginLeft: $('#aside_button').width(), zIndex: '7', maxWidth: '190px'});
 				}
-				else if($('aside').css('display')=='inline-block' || $('aside').css('display')=='block'){
+				else if($('aside').css('display')=='block'){
 					$('aside').css({display: 'none', position: 'relative'});
 				}
+				getContentSize();
+			}
+			
+			function getHeight(){
+				return $('#content').height();
+			}
+			
+			function setColsSize(){
+				$('aside').height('100%');
+				$('article').height('100%');
 			}
 		</script>
 	</head>
 	<body>
-		<div id='content'>
-			<header>
-				
+		<div class='container-fluid'>
+		<div class="row">
+			<header class="col-md-12">				
 					<div class="header_content"><img alt="logo" src="img/logo-novomet.png"/></div>
-					<div class="header_content" id="header_text"><span>Автоматизированная система удалённого контроля и управления наземным оборудованием скважин</span></div>
-				
+					<div class="header_content" id="header_text"><span>Автоматизированная система удалённого контроля и управления наземным оборудованием скважин</span></div>				
 			</header>
-			<div id="aside_button" onclick="leftMenuDisplaying()"></div>
-			<aside>
-				<div class="menu-user-block">
-					<div id="username">Имя сотрудника</div>
-					<div id="department">Отдел</div>
-					<div><input type="button" value="Выйти"/></div>
-				</div>
-				<div class="menu-block">
-					<div class="menu-block-title"  onclick="leftMenuItemsDisplaying('#monitoring', this)">
-						<div class="arrow visible"></div><div class="block-title-text">Мониторинг</div>
-						<div class="status">
-							<div class="error">003</div><div class="warning">02</div><div class="work">01</div>
+			</div>
+			<div class="col-md-12 col-xs-12 row" id="content">
+				<div id="aside_button" onclick="leftMenuDisplaying()" class='col-xs-1 hidden-print hidden-lg hidden-md hidden-sm'></div>
+				<aside class="col-md-2 col-sm-2">
+					<div class="menu-user-block">
+						<div id="username">Имя сотрудника</div>
+						<div id="department">Отдел</div>
+						<div><input type="button" value="Выйти"/></div>
+					</div>
+					<div class="menu-block">
+						<div class="menu-block-title"  onclick="leftMenuItemsDisplaying('#monitoring', this)">
+							<div class="arrow visible"></div><div class="block-title-text">Мониторинг</div>
+							<div class="status">
+								<div class="error">003</div><div class="warning">002</div><div class="work">001</div>
+							</div>
+						</div>
+						<div class="menu-block-content" id="monitoring" display="show">
+							<div class="link" onclick="select(this)">Таблица</div>
+							<div class="link" onclick="select(this)">Карта</div>							
 						</div>
 					</div>
-					<div class="menu-block-content" id="monitoring" display="show">
-						<div class="link" onclick="select(this)">Таблица</div>
-						<div class="link" onclick="select(this)">Карта</div>							
+					<div class="menu-block">
+						<div class="menu-block-title" onclick="leftMenuItemsDisplaying('#analytics', this)">
+							<div class="arrow visible"></div><div class="block-title-text">Аналитика</div>
+						</div>
+						<div class="menu-block-content" id="analytics" display="show">
+							<div class="link" onclick="select(this)">Отчеты</div>
+							<div class="link" onclick="select(this)">OLAP</div>							
+						</div>
 					</div>
-				</div>
-				<div class="menu-block">
-					<div class="menu-block-title" onclick="leftMenuItemsDisplaying('#analytics', this)">
-						<div class="arrow visible"></div><div class="block-title-text">Аналитика</div>
+					<div class="menu-block">
+						<div class="menu-block-title" onclick="leftMenuItemsDisplaying('#settings', this)"><div class="arrow visible"></div><div class="block-title-text">Настройки</div></div>
+						<div class="menu-block-content" id="settings" display="show">
+							<div class="link" onclick="select(this)">Общие настройки</div>
+							<div class="link" onclick="select(this)">Параметры объектов</div>							
+						</div>
 					</div>
-					<div class="menu-block-content" id="analytics" display="show">
-						<div class="link" onclick="select(this)">Отчеты</div>
-						<div class="link" onclick="select(this)">OLAP</div>							
+					<div class="menu-block">
+						<div class="menu-block-title" onclick="leftMenuItemsDisplaying('#guide', this)"><div class="arrow visible"></div><div class="block-title-text">Справочники</div></div>
+						<div class="menu-block-content" id="guide" display="show">
+							<div class="link" onclick="select(this)">Скважины</div>	
+							<div class="link" onclick="select(this)">Параметры измерений</div>				
+						</div>
 					</div>
-				</div>
-				<div class="menu-block">
-					<div class="menu-block-title" onclick="leftMenuItemsDisplaying('#settings', this)"><div class="arrow visible"></div><div class="block-title-text">Настройки</div></div>
-					<div class="menu-block-content" id="settings" display="show">
-						<div class="link" onclick="select(this)">Общие настройки</div>
-						<div class="link" onclick="select(this)">Параметры объектов</div>							
+
+				</aside>
+				<article class="col-md-10 col-sm-10 col-xs-11">
+					<div class="page_content">
+						<div>
+							<div class="table-responsive">
+							<table class="table table-striped table-bordered table-hover">
+								<tr class="table_header">
+									<td>Компания</td>
+									<td>Месторождение</td>
+									<td>Куст</td>
+									<td>Скважина</td>
+									<td>Состояние</td>
+								</tr>
+								<tr class="success">
+									<td>Векторнефть</td>
+									<td>Призабойненское</td>
+									<td>Куст 123</td>
+									<td>Скважина 319</td>
+									<td>Работает</td>
+								</tr>
+								<tr class="warning">
+									<td>Тест 1</td>
+									<td>Тест 1</td>
+									<td>Тест 1</td>
+									<td>Тест 1</td>
+									<td>Нет ответа</td>
+								</tr>
+								<tr class="danger">
+									<td>Тест 2</td>
+									<td>Тест 2</td>
+									<td>Тест 2</td>
+									<td>Тест 2</td>
+									<td>Остановлена</td>
+								</tr>
+								<tr class="success">
+									<td>Тест 3</td>
+									<td>Тест 3</td>
+									<td>Тест 3</td>
+									<td>Тест 3</td>
+									<td>Работает</td>
+								</tr>
+							</table>
+							</div>
+						</div>
+					
 					</div>
-				</div>
-				<div class="menu-block">
-					<div class="menu-block-title" onclick="leftMenuItemsDisplaying('#guide', this)"><div class="arrow visible"></div><div class="block-title-text">Справочники</div></div>
-					<div class="menu-block-content" id="guide" display="show">
-						<div class="link" onclick="select(this)">Скважины</div>	
-						<div class="link" onclick="select(this)">Параметры измерений</div>				
-					</div>
-				</div>
-				
-			</aside>
-			<article>
-				<div class="page_content">
-					<div>
-						<table id="table_well">
-							<tr class="table_header">
-								<td>Компания</td>
-								<td>Месторождение</td>
-								<td>Куст</td>
-								<td>Скважина</td>
-								<td>Состояние</td>
-							</tr>
-							<tr class="table_row odd">
-								<td>Векторнефть</td>
-								<td>Призабойненское</td>
-								<td>Куст 123</td>
-								<td>Скважина 319</td>
-								<td>Работает</td>
-							</tr>
-							<tr class="table_row even">
-								<td>Тест 1</td>
-								<td>Тест 1</td>
-								<td>Тест 1</td>
-								<td>Тест 1</td>
-								<td>Тест 1</td>
-							</tr>
-							<tr class="table_row odd">
-								<td>Тест 2</td>
-								<td>Тест 2</td>
-								<td>Тест 2</td>
-								<td>Тест 2</td>
-								<td>Тест 2</td>
-							</tr>
-							<tr class="table_row even">
-								<td>Тест 3</td>
-								<td>Тест 3</td>
-								<td>Тест 3</td>
-								<td>Тест 3</td>
-								<td>Тест 3</td>
-							</tr>
-						</table>
-					</div>
-				</div>
-			</article>
-		</div>
+				</article>
+			</div>
+			</div>
 	</body>
 </html>
