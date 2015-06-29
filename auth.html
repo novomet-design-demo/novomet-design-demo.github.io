@@ -17,10 +17,10 @@ and open the template in the editor.
 			$(function() {getContentSize();});
 			$(window).resize(function(){getContentSize();});
 			function getContentSize(){
-				$('#auth-content').css({height: '100%'});
+				$('#auth-content').css({height: '100%', width: '100%'});
 				if(($(window).height())>$('#auth-content').height()){
 					$('#auth-content').css({height: $(window).height()});
-					$('.v_center').css({marginTop: '-106px'});					
+					$('.v_center').css({marginTop: '-155px'});					
 				}
 				else {
 					$('.v_center').css({marginTop: '0px'});	
@@ -33,6 +33,7 @@ and open the template in the editor.
 			<div class="col-md-12 col-xs-12 row" id="auth-content">
 				<div class="col-md-4 col-sm-4 col-xs-3 v_center"></div>
 				<div class="col-md-4 col-sm-4 col-xs-6 v_center">
+					<div><div class="logo-img"><img alt="logo" src="img/logo-novomet.png"/></div><div class="name">Автоматизированная система удалённого контроля и управления наземным оборудованием скважин</div></div>
 					<form>
 						<div class="form-group">
 						  <label for="inputEmail">Логин:</label>

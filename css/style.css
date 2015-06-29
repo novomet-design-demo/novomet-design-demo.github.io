@@ -424,9 +424,19 @@ article{
 }
 
 .v_center{
-	height: 212px;
+	height: 310px;
 	position: absolute;
 	top:50%;
-	margin-top: -106px;
+	margin-top: -155px;
 	vertical-align: middle;
+}
+
+.name{
+	color: rgb(78,150,209);
+	font-size: 12pt;
+}
+
+.logo-img img{
+	width: 100%;
+	max-width: 310px;
 }
