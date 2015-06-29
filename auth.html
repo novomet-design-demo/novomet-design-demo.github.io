@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Автоматизированная система удалённого контроля и управления наземным оборудованием скважин
+		</title>
+		<link href="css/style.css" rel="stylesheet">
+		<link href="css/bootstrap.css" rel="stylesheet">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+		<script>
+			$(function() {getContentSize();});
+			$(window).resize(function(){getContentSize();});
+			function getContentSize(){
+				$('#auth-content').css({height: '100%'});
+				if(($(window).height())>$('#auth-content').height()){
+					$('#auth-content').css({height: $(window).height()});
+					$('.v_center').css({marginTop: '-106px'});					
+				}
+				else {
+					$('.v_center').css({marginTop: '0px'});	
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div class='container-fluid'>
+			<div class="col-md-12 col-xs-12 row" id="auth-content">
+				<div class="col-md-4 col-sm-4 col-xs-3 v_center"></div>
+				<div class="col-md-4 col-sm-4 col-xs-6 v_center">
+					<form>
+						<div class="form-group">
+						  <label for="inputEmail">Логин:</label>
+						  <input type="email" class="form-control" id="inputEmail" placeholder="Введите логин">
+						</div>
+						<div class="form-group">
+						  <label for="inputPassword">Пароль:</label>
+						  <input type="password" class="form-control" id="inputPassword" placeholder="Введите пароль">
+						</div>
+						<div class="checkbox">
+						  <label>
+							<input type="checkbox"> Запомнить
+						  </label>
+						</div>
+						<button type="submit" class="btn btn-default">Войти</button>
+					</form>
+				</div>
+				<div class="col-md-4 col-sm-4 col-xs-3 v_center"></div>
+			</div>
+		</div>
+	</body>
+</html>
