@@ -8,8 +8,12 @@
 		<link href="css/style.css" rel="stylesheet">
 		<link href="css/bootstrap.css" rel="stylesheet">
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+		<script src="js/navbar.js"></script>
 		<script>
 			$(function() {getContentSize();});
+			
+			$(window).resize(function(){getContentSize();});
+			
 			function getContentSize(){	
 				setColsSize();
 				$('#content').css({position: 'relative', width: '100%', height: '100%'});
@@ -19,26 +23,8 @@
 				$('aside').css({height: getHeight()});
 				$('article').css({height: getHeight()});
 				$('#aside_button').css({height: getHeight()});
+				$('#slide-nav').css({height: getHeight(), background: 'linear-gradient(rgb(90, 150, 220), rgb(10,70,140))'});
 			}
-			$(window).resize(function(){
-				var width;
-				if(($(window).height()-$('header').height())>=$('#content').height()){width = $(window).width();}
-				else {width = $(window).width() + 17;}
-				if(width>=768){
-					$('aside').css({display: 'inline-block !important',	height: getHeight(),maxWidth: '100%', position: 'relative',  marginLeft: '0px'});
-					$('#aside_button').css({display: 'none'});
-				}
-				else{
-					if($('aside').css('display')=='none'){
-						$('aside').css({display: 'none', position: 'relative'});
-					}
-					else if($('aside').css('display')=='block'){
-						$('aside').css({display: 'block', position: 'absolute', marginLeft: $('#aside_button').width(), zIndex: '7', maxWidth: '190px', height: getHeight()});
-					}
-					$('#aside_button').css({display: 'inline-block', height: '100%', position: 'relative'});
-				}
-				getContentSize();
-			});
 			
 			function select(item){
 				$('aside div').removeClass('selected');
@@ -56,15 +42,6 @@
 					$(block).attr('display', 'show');
 					$(arrow).find('.arrow').removeClass('withhold');
 					$(arrow).find('.arrow').addClass('visible');
-				}
-				getContentSize();
-			}
-			function leftMenuDisplaying(){
-				if($('aside').css('display')=='none'){
-					$('aside').css({display: 'block', position: 'absolute', marginLeft: $('#aside_button').width(), zIndex: '7', maxWidth: '190px'});
-				}
-				else if($('aside').css('display')=='block'){
-					$('aside').css({display: 'none', position: 'relative'});
 				}
 				getContentSize();
 			}
@@ -88,8 +65,20 @@
 			</header>
 			</div>
 			<div class="col-md-12 col-xs-12 row" id="content">
-				<div id="aside_button" onclick="leftMenuDisplaying()" class='col-xs-1 hidden-print hidden-lg hidden-md hidden-sm'></div>
-				<aside class="col-md-2 col-sm-2">
+				
+			 <div class="navbar navbar-inverse col-md-2 col-sm-2 col-xs-1" role="navigation" id="slide-nav">	
+				 <div class="nav-container">
+				 <div class="navbar-header">
+    <a class="navbar-toggle"> 
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+     </a>
+    <!--<a class="navbar-brand" href="#">Project name</a>-->
+   </div>
+				 <div id="slidemenu">
+				<aside>
 					<div class="menu-user-block">
 						<div id="username">Имя сотрудника</div>
 						<div id="department">Отдел</div>
@@ -130,8 +119,11 @@
 							<div class="link" onclick="select(this)">Параметры измерений</div>				
 						</div>
 					</div>
-
 				</aside>
+				 </div>
+			</div>
+				 </div>
+				
 				<article class="col-md-10 col-sm-10 col-xs-11">
 					<div class="page_content">
 						<div>

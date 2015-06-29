@@ -4217,12 +4217,12 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar {
   position: relative;
   min-height: 50px;
-  margin-bottom: 20px;
-  border: 1px solid transparent;
+  //margin-bottom: 20px;
+  //border: 1px solid transparent;
 }
 @media (min-width: 768px) {
   .navbar {
-    border-radius: 4px;
+    //border-radius: 4px;
   }
 }
 @media (min-width: 768px) {
@@ -4344,15 +4344,21 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar-toggle {
   position: relative;
-  float: right;
-  padding: 9px 10px;
-  margin-top: 8px;
-  margin-right: 15px;
-  margin-bottom: 8px;
+  //float: right;
+  float:left;
+  padding: 2px;
+  //margin-top: 8px;
+  //margin-right: 15px;
+  //margin-bottom: 8px;
+  margin: 1px;
   background-color: transparent;
   background-image: none;
-  border: 1px solid transparent;
+  border: 2px solid transparent;
   border-radius: 4px;
+  width: 100%;
+  overflow-x: hidden;
+  max-width: 51px;
+  max-height: 51px;
 }
 .navbar-toggle:focus {
   outline: 0;
@@ -4583,7 +4589,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar-default .navbar-toggle:hover,
 .navbar-default .navbar-toggle:focus {
-  background-color: #ddd;
+  //background-color: #ddd;
+  background-color: #47C2FD;
 }
 .navbar-default .navbar-toggle .icon-bar {
   background-color: #888;
@@ -4640,8 +4647,8 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   color: #ccc;
 }
 .navbar-inverse {
-  background-color: #222;
-  border-color: #080808;
+  //background-color: #222;
+  //border-color: #080808;
 }
 .navbar-inverse .navbar-brand {
   color: #9d9d9d;
@@ -4675,11 +4682,13 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   background-color: transparent;
 }
 .navbar-inverse .navbar-toggle {
-  border-color: #333;
+  //border-color: #333;
+  border-color: #074180;
 }
 .navbar-inverse .navbar-toggle:hover,
 .navbar-inverse .navbar-toggle:focus {
-  background-color: #333;
+  //background-color: #333;
+  background-color: #47C2FD;
 }
 .navbar-inverse .navbar-toggle .icon-bar {
   background-color: #fff;
