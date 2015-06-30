@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Автоматизированная система удалённого контроля и управления наземным оборудованием скважин
+		</title>
+		<link href="css/style.css" rel="stylesheet">
+		<link href="css/bootstrap.css" rel="stylesheet">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+		<script src="js/navbar.js"></script>		
+		<script src="js/javascript.js"></script>
+	</head>
+	<body>
+		<div class='container-fluid'>
+		<div class="row">
+			<header class="col-md-12">				
+					<div class="header_content"><img alt="logo" src="img/logo-novomet.png"/></div>
+					<div class="header_content" id="header_text"><span>Автоматизированная система удалённого контроля и управления наземным оборудованием скважин</span></div>				
+			</header>
+			</div>
+			<div class="col-md-12 col-xs-12 row" id="content">
+				
+			 <div class="navbar navbar-inverse col-md-2 col-sm-2 col-xs-1" role="navigation" id="slide-nav">	
+				 <div class="nav-container">
+				 <div class="navbar-header">
+    <a class="navbar-toggle"> 
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+     </a>
+    <!--<a class="navbar-brand" href="#">Project name</a>-->
+   </div>
+				 <div id="slidemenu">
+				<aside>
+					<div class="menu-user-block">
+						<div id="username">Имя сотрудника</div>
+						<div id="department">Отдел</div>
+						<div><input type="button" value="Выйти"/></div>
+					</div>
+					<div class="menu-block">
+						<div class="menu-block-title"  onclick="leftMenuItemsDisplaying('#monitoring', this)">
+							<div class="arrow visible"></div><div class="block-title-text">Мониторинг</div>
+							<div class="status">
+								<div class="error">003</div><div class="warning">002</div><div class="work">001</div>
+							</div>
+						</div>
+						<div class="menu-block-content" id="monitoring" display="show">
+							<div class="link" onclick="select('mainPage.html')">Таблица</div>
+							<div class="link" onclick="select('#')">Карта</div>							
+						</div>
+					</div>
+					<div class="menu-block">
+						<div class="menu-block-title" onclick="leftMenuItemsDisplaying('#analytics', this)">
+							<div class="arrow visible"></div><div class="block-title-text">Аналитика</div>
+						</div>
+						<div class="menu-block-content" id="analytics" display="show">
+							<div class="link" onclick="select('#')">Отчеты</div>
+							<div class="link" onclick="select('#')">OLAP</div>							
+						</div>
+					</div>
+					<div class="menu-block">
+						<div class="menu-block-title" onclick="leftMenuItemsDisplaying('#settings', this)"><div class="arrow visible"></div><div class="block-title-text">Настройки</div></div>
+						<div class="menu-block-content" id="settings" display="show">
+							<div class="link" onclick="select('generalSettings.html')">Общие настройки</div>
+							<div class="link selected" onclick="select('objectParameters.html')">Параметры объектов</div>							
+						</div>
+					</div>
+					<div class="menu-block">
+						<div class="menu-block-title" onclick="leftMenuItemsDisplaying('#guide', this)"><div class="arrow visible"></div><div class="block-title-text">Справочники</div></div>
+						<div class="menu-block-content" id="guide" display="show">
+							<div class="link" onclick="select('#')">Скважины</div>	
+							<div class="link" onclick="select('#')">Параметры измерений</div>				
+						</div>
+					</div>
+				</aside>
+				 </div>
+			</div>
+				 </div>
+				
+				<article class="col-md-10 col-sm-10 col-xs-11">
+					<div class="page_content">
+						<div class="panel col-md-12">
+							<div class="col-md-3">
+								<div class="well">
+								<ul class="nav nav-list">
+									<li class="nav-header">Оборудование</li>
+									<li class="active">Станция</li>
+									<li>Двигатель</li>
+									<li>ТМПН</li>
+									<li>ЧРП</li>
+									<li>Тип ТМС</li>
+								</ul>
+								<ul class="nav nav-list">
+									<li class="nav-header">Защиты</li>
+									<li class="not-selected">
+										<ul class="nav nav-list">
+											<li class="nav-header">Защиты по сети</li>
+											<li>Превышение питания</li>
+											<li>Снижение питания</li>
+											<li>Дисбаланс напряжения</li>
+										</ul>
+									</li>
+									<li class="not-selected">
+										<ul class="nav nav-list">
+											<li class="nav-header">Защиты двигателя</li>
+											<li>Перегруз</li>
+											<li>Недогруз</li>
+											<li>Турбинное вращение</li>
+										</ul>
+									</li>
+									<li class="not-selected">
+										<ul class="nav nav-list">
+											<li class="nav-header">Защиты по ТМС</li>
+											<li>Давление на приеме насоса</li>
+											<li>Перегрев двигателя</li>
+											<li>Сопротивление изоляции</li>
+										</ul>
+									</li>
+									<li class="not-selected">
+										<ul class="nav nav-list">
+											<li class="nav-header">Защиты дополнительные</li>
+											<li>Защита ЧРП</li>
+										</ul>
+									</li>
+								</ul>
+									</div>
+							</div>
+							<div class="col-md-9">
+								
+							</div>
+						</div>
+					</div>
+				</article>
+			</div>
+			</div>
+	</body>
+</html>
