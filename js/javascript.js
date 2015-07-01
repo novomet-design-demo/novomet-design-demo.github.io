@@ -24,6 +24,12 @@ function getContentSize(){
 		$('#aside_button').css({height: getHeight()});
 		$('#slide-nav').css({height: getHeight(), background: 'linear-gradient(rgb(90, 150, 220), rgb(10,70,140))'});
 	}
+	if($('#left-col').height()>$('#right-col').height()){
+		$('#right-col').css({height: $('#left-col').height()});
+	}
+	else{
+		$('#left-col').css({height: $('#right-col').height()});
+	}
 }
 
 /*function select(item){

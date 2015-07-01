@@ -63,14 +63,14 @@
 					<div class="menu-block">
 						<div class="menu-block-title" onclick="leftMenuItemsDisplaying('#settings', this)"><div class="arrow visible"></div><div class="block-title-text">Настройки</div></div>
 						<div class="menu-block-content" id="settings" display="show">
-							<div class="link selected" onclick="select('generalSettings.html')">Общие настройки</div>
+							<div class="link" onclick="select('generalSettings.html')">Общие настройки</div>
 							<div class="link" onclick="select('objectParameters.html')">Параметры объектов</div>							
 						</div>
 					</div>
 					<div class="menu-block">
 						<div class="menu-block-title" onclick="leftMenuItemsDisplaying('#guide', this)"><div class="arrow visible"></div><div class="block-title-text">Справочники</div></div>
 						<div class="menu-block-content" id="guide" display="show">
-							<div class="link" onclick="select('WellsGuide.html')">Скважины</div>	
+							<div class="link selected" onclick="select('WellsGuide.html')">Скважины</div>	
 							<div class="link" onclick="select('#')">Параметры измерений</div>				
 						</div>
 					</div>
@@ -81,18 +81,38 @@
 				
 				<article class="col-md-10 col-sm-10 col-xs-11">
 					<div class="page_content">
-						<div class="col-md-12">
-							<div style="padding: 14px">
-								<div style="margin-top: 14px" class="col-md-12">
-									<div  class="col-md-2"><span class="settings">Частота мигания в случае аварии </span></div>
-									<div  class="col-md-2"><input type="text" class="settings_input"></div>
+						<div class="col-md-12 col-sm-12 row">
+							<div class="col-md-6 col-sm-6" id="left-col">
+								<div class="wrap">
+									<div class="h4">Месторождения</div>
+									<div class="topMenu">
+										<div class="add"></div><div class="edit"></div><div class="delete"></div><div class="save"></div>
+									</div>
+									<div class="field">
+										
+									</div>
 								</div>
-								<div style="margin-top: 14px" class="col-md-12">
-									<div  class="col-md-2"><span class="settings">Частота опроса сервера </span></div>
-									<div  class="col-md-2"><input type="text" class="settings_input"></div>
+							</div>
+							<div class="col-md-6 col-sm-6" id="right-col">
+								<div class="col-md-12 col-sm-12" id="wellPads">
+									<div class="wrap">
+										<div class="h4">Кусты скважин</div>
+										<div class="topMenu">
+											<div class="add"></div><div class="edit"></div><div class="delete"></div><div class="save"></div>
+										</div>
+										<div class="field"></div>
+									</div>
 								</div>
-								<div class="col-md-2" style="margin-top: 14px"><input type="button" value="Сохранить"></div>
-							</div>							
+								<div class="col-md-12 col-sm-12" id="wells">
+									<div class="wrap">
+										<div class="h4">Скважины</div>
+										<div class="topMenu">
+											<div class="add"></div><div class="edit"></div><div class="delete"></div><div class="save"></div>
+										</div>
+										<div class="field"></div>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</article>
