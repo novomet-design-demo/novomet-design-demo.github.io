@@ -209,7 +209,7 @@ article{
 }
 
 .table{
-	background: rgb(229, 229, 229);
+	background: rgb(245, 245, 245);
 }
 
 .table_header{
@@ -485,4 +485,77 @@ a{
 	border-radius: 3px;
 	border: 1px solid #6B6969 ! important;
 	font-size: 11pt;
+}
+
+.wellBlock{
+	padding: 6px !important;
+	min-width: 335px;
+}
+
+.wellBlockHeader{
+	background: linear-gradient(rgb(229, 229, 229), rgb(200, 200, 200));
+	border-radius: 6px 6px 0 0;
+	border-left: 1px solid rgb(146, 156, 160);	
+	border-top: 1px solid rgb(146, 156, 160);
+	border-right: 1px solid rgb(146, 156, 160);
+}
+
+.wellBlockHeader, .footerPart{	
+	padding: 6px;
+}
+
+.wellBlockContent{
+	background: #fff !important;
+}
+
+.wellBlockFooter{
+	border-radius: 0 0 6px 6px;
+	border-left: 1px solid rgb(146, 156, 160);	
+	border-bottom: 1px solid rgb(146, 156, 160);
+	border-right: 1px solid rgb(146, 156, 160);
+	background: linear-gradient(rgb(229, 229, 229), rgb(200, 200, 200));
+}
+
+.wellBlockContent{	
+	font-size: 10pt;
+	border-left: 1px solid rgb(146, 156, 160);	
+	border-right: 1px solid rgb(146, 156, 160);
+}
+
+.startButton{
+	background: rgb(176, 214, 94) !important;
+}
+
+.stopButton{
+	background: rgb(242, 151, 99)!important;
+}
+
+.warningButton{
+	background: rgb(255, 227, 117)!important;
+}
+
+.wellBlockContent table td{
+	padding: 3px !important;
+}
+
+.clear{
+	clear: both;
+}
+.value{
+	text-align: right;
+}
+
+.tableBorder{
+	background: #ddd;
+	width: 1px !important;
+	padding: 0px !important;
+	border: 0px !important;
+}
+
+.warningRow{
+	background: rgb(255, 227, 117);
+}
+
+.errorRow{
+	background: rgb(242, 151, 99);
 }

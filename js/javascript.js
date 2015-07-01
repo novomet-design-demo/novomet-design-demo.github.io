@@ -58,171 +58,79 @@ function setColsSize(){
 	$('article').height('100%');
 }
 
-
-
-
-/*
-$(function() {
-	var authContent = React.createClass({		
-		onClick: function(){
-			auth();
-		},
-		render: function(){
-			return(
-				React.createElement('div', {className: "col-md-12 col-xs-12 row", id: "auth-content"},
-					React.createElement('div', {className: "col-md-4 col-sm-4 col-xs-3 v_center"}),
-					React.createElement('div', {className: "col-md-4 col-sm-4 col-xs-3 v_center"},
-						React.createElement('div', null, 
-							React.createElement('div', {className: "logo-img"},
-								React.createElement('img', {alt: "logo", src: "img/logo-novomet.png"})
-							),
-							React.createElement('div', {className: "name"}, 'Автоматизированная система удалённого контроля и управления наземным оборудованием скважин')
-						),
-						React.createElement('form', null,
-							React.createElement('div', {className: "form-group"},
-								React.createElement('label', {htmlFor:"inputEmail"}, 'Логин:'),
-								React.createElement('input', {type: "email", className:"form-control", id:"inputEmail", placeholder:"Введите логин"})
-							),
-							React.createElement('div', {className: "form-group"},
-								React.createElement('label', {htmlFor: "inputPassword"}, 'Пароль:'),
-								React.createElement('input', {type: "password", className: "form-control", id: "inputPassword", placeholder: "Введите пароль"})
-							),
-							React.createElement('button', {type:"button", className: "btn btn-default", onClick: this.onClick}, 'Войти')
-						)
-					),
-					React.createElement('div', {className: "col-md-4 col-sm-4 col-xs-3 v_center"})
-				)
-			);
-		}
-	});
-	
-	var header = React.createClass({
-		render: function(){
-			return(
-				React.createElement('div', {className: 'row'},
-					React.createElement('header', {className: 'col-md-12'},
-						React.createElement('div', {className: 'header_content'},
-							React.createElement('img', {alt: "logo", src: 'img/logo-novomet.png'}, null)
-						),
-						React.createElement('div', {className: 'header_content'},
-							React.createElement('span', null, 'Автоматизированная система удалённого контроля и управления наземным оборудованием скважин')
-						)
-					)
-				)
-			);
-		}
-	});		
-	
-	var navbar = React.createClass({
-		render: function(){
-			return(
-				React.createElement('div', {className: "navbar navbar-inverse col-md-2 col-sm-2 col-xs-1", role: "navigation", id: "slide-nav"},
-					React.createElement('div', {className: "nav-container"},
-						React.createElement('div', {className: "navbar-header"},
-							React.createElement('a', {className: "navbar-toggle"}, 
-								React.createElement('span', {className: "sr-only"}, 'Toggle navigation'),
-								React.createElement('span', {className: "icon-bar"}),
-								React.createElement('span', {className: "icon-bar"}),
-								React.createElement('span', {className: "icon-bar"})
-							)
-						),
-						React.createElement('div', {id: "slidemenu"},
-							React.createElement('aside', null,
-								React.createElement('div', {className: "menu-user-block"},
-									React.createElement('div', {id: "username"}, 'Имя сотрудника'),
-									React.createElement('div', {id: "department"}, 'Отдел'),
-									React.createElement('div', null,
-										React.createElement('input', {type: "button", value: "Выйти"})
-									)
-								),
-								React.createElement('div', {className: "menu-block"},
-									React.createElement('div', {className: "menu-block-title",  onclick: "leftMenuItemsDisplaying('#monitoring', this)"},
-										React.createElement('div', {className:"arrow visible"}),
-										React.createElement('div', {className: "block-title-text"}, 'Мониторинг'),
-										React.createElement('div', {className: "status"},
-											React.createElement('div', {className: "error"}, '003'),
-											React.createElement('div', {className: "warning"}, '002'),
-											React.createElement('div', {className: "work"}, '001')
-										)
-									),
-									React.createElement('div', {className: "menu-block-content", id: "monitoring", display: "show"},
-										React.createElement('div', {className: "link", onclick: "select(this)"}, 'Таблица'),
-										React.createElement('div', {className: "link", onclick:"select(this)"}, 'Карта')
-									)
-								),
-								React.createElement('div', {className: "menu-block"},
-									React.createElement('div', {className: "menu-block-title", onclick: "leftMenuItemsDisplaying('#analytics', this)"},
-										React.createElement('div', {className: "arrow visible"}),
-											React.createElement('div', {className: "block-title-text"}, 'Аналитика')
-									),
-									React.createElement('div', {className: "menu-block-content", id: "analytics", display:"show"},
-										React.createElement('div', {className: "link", onclick: "select(this)"}, 'Отчеты'),
-										React.createElement('div', {className: "link", onclick: "select(this)"}, 'OLAP')							
-									)
-								),
-								React.createElement('div', {className: "menu-block"},
-									React.createElement('div', {className: "menu-block-title", onclick: "leftMenuItemsDisplaying('#settings', this)"},
-										React.createElement('div', {className: "arrow visible"}),
-										React.createElement('div', {className: "block-title-text"}, 'Настройки')
-									),
-									React.createElement('div', {className: "menu-block-content", id: "settings", display: "show"},
-										React.createElement('div', {className: "link", onclick: "select(this)"}, 'Общие настройки'),
-										React.createElement('div', {className: "link", onclick: "select(this)"}, 'Параметры объектов')							
-									)
-								),
-								React.createElement('div', {className: "menu-block"},
-									React.createElement('div', {className: "menu-block-title", onclick: "leftMenuItemsDisplaying('#guide', this)"},
-										React.createElement('div', {className: "arrow visible"}),
-										React.createElement('div', {className: "block-title-text"}, 'Справочники')
-									),
-									React.createElement('div', {className: "menu-block-content", id: "guide", display: "show"},
-										React.createElement('div', {className: "link", onclick: "select(this)"}, 'Скважины'),	
-										React.createElement('div', {className: "link", onclick: "select(this)"}, 'Параметры измерений')				
-									)
-								)
-							)
-						)
-					)
-				)
-			);
-		}
-	});
-	
-	var article = React.createClass({
-		render: function(){
-			return(
-				React.createElement('article', {className: "col-md-10 col-sm-10 col-xs-11"},
-					React.createElement('div', {className: "page_content"})
-				)
-			);
-		}
-	});
-	
-	var page = React.createClass({
-		getInitialState: function() {
-			return {auth: false};
-		},
-		render: function(){
-			if (this.state.auth == true){
-				return(
-					React.createElement('div', null,
-						React.createElement(header),
-						React.createElement('div', {className: "col-md-12 col-xs-12 row", id:"content"},
-							React.createElement(navbar),
-							React.createElement(article)
-						)
-					)
-				);
-			}
-			else{return React.createElement(authContent);}
-		}
-	});
-	
-	var container = React.render(React.createElement(page), document.getElementById('container'));
+function tableToBlocks(){
+	$('.table-responsive').html(wellToHtml()+wellToHtml()+wellToHtml()+wellToHtml());
 	getContentSize();
-	
-	function auth(){
-		container.replaceState({auth: true});
-		getContentSize();
-	}
-});*/
+}
+/*
+function wellToHtml(){
+	return (
+		'<div class="col-md-4 wellBlock">'+
+			'<div class="wellBlockHeader col-md-12"> Векторнефть > Призабойненское > Куст 123 > Скважина 319</td></div>'+
+			'<div class="wellBlockContent col-md-12 row">'+
+				'<div class="col-md-6"><table class="table">'+
+					'<tr><td>Параметр</td><td>Значение</td></tr>'+
+					'<tr><td>Режим</td><td>Ручной</td></tr>'+
+					'<tr><td>Частота, Гц</td><td>60.2</td></tr>'+
+					'<tr><td>Частота зад, Гц</td><td>60.2</td></tr>'+
+					'<tr class="well-warning"><td>загрузка, %</td><td>77.4</td></tr>'+
+					'<tr><td>Ток двигателя, А</td><td>24.4 23.2 32.4</td></tr>'+
+					'<tr><td>Дисб тока двигателя, %</td><td>12.0</td></tr>'+
+					'<tr><td>Напряж двиг, В</td><td>3889</td></tr>'+
+					'<tr><td>Сопр изол, кОм</td><td>9999</td></tr>'+
+					'<tr><td>Активн мощн, кВт</td><td>555.5</td></tr>'+
+					'<tr><td>Полная мощн, кВА</td><td>555.5</td></tr>'+
+					'<tr><td>Коэфф мощности</td><td>0.875</td></tr>'+
+				'</table></div>'+
+				'<div class="col-md-6"><table class="table">'+
+					'<tr><td>Параметр</td><td>Значение</td></tr>'+
+					'<tr><td>Напряжение Ud, В</td><td>555</td></tr>'+
+					'<tr><td>Вых напряж ПЧ, В</td><td>444</td></tr>'+
+					'<tr><td>Вых ток ПЧ, А</td><td>124.4 123.2 132.4</td></tr>'+
+					'<tr class="well-danger"><td>Темпер радиат, С</td><td>116.5</td></tr>'+
+					'<tr><td>Вх ток, А</td><td>124.4 123.2 132.4</td></tr>'+
+					'<tr><td>Дисб вх тока, %</td><td>12.0</td></tr>'+
+					'<tr><td>Межфаз напряж, В</td><td>400 410 412</td></tr>'+
+					'<tr><td>Вх напряж АВС, В</td><td>220 222 212</td></tr>'+
+					'<tr class="well-warning"><td>Дисб вх напряж, %</td><td>12.0</td></tr>'+
+					'<tr><td>Дав на прием, Мпа</td><td>2.534</td></tr>'+
+					'<tr><td>Темпер двиг, С</td><td>160.4</td></tr>'+
+				'</table></div>'+
+			'<div class="clear"></div></div>'+
+			'<div class="wellBlockFooter col-md-12">'+
+				'<div class="col-md-4 footerPart"><input class="startButton" type="button" value="Пуск"></div>'+
+				'<div class="col-md-4 footerPart"><input class="stopButton" type="button" value="Стоп"></div>'+
+				'<div class="col-md-4 footerPart"><input class="warningButton" type="button" value="Квитировать"></div>'+
+			'</div>'+
+		'</div>'
+	);
+}*/
+
+function wellToHtml(){
+	return (
+		'<div class="col-md-4 col-sm-6 col-xs-12 wellBlock">'+
+			'<div class="wellBlockHeader col-md-12 col-sm-12 col-xs-12"> Векторнефть > Призабойненское > Куст 123 > Скважина 319</td></div>'+
+			'<div class="wellBlockContent col-md-12 col-sm-12 col-xs-12">'+
+				'<table class="table">'+
+					'<tr><th>Параметр</th><th class="value">Значение</th><th class="tableBorder"></th><th>Параметр</th><th class="value">Значение</th></tr>'+
+					'<tr><td>Режим</td><td class="value">Ручной</td><td class="tableBorder"></td><td>Напряжение Ud, В</td><td class="value">555</td></tr>'+
+					'<tr><td>Частота, Гц</td><td class="value">60.2</td><td class="tableBorder"></td><td>Вых напряж ПЧ, В</td><td class="value">444</td></tr>'+
+					'<tr><td>Частота зад, Гц</td><td class="value">60.2</td><td class="tableBorder"></td><td>Вых ток ПЧ, А</td><td class="value">124.4 123.2 132.4</td></tr>'+
+					'<tr><td class="warningRow">загрузка, %</td><td class="value warningRow">77.4</td><td class="tableBorder"></td><td class="errorRow">Темпер радиат, С</td><td class="value errorRow">116.5</td></tr>'+
+					'<tr><td class="warningRow">Ток двигателя, А</td><td class="value warningRow">24.4 23.2 32.4</td><td class="tableBorder"></td><td>Вх ток, А</td><td class="value">124.4 123.2 132.4</td></tr>'+
+					'<tr><td class="warningRow">Дисб тока двигателя, %</td><td class="value warningRow">12.0</td><td class="tableBorder"></td><td>Дисб вх тока, %</td><td class="value">12.0</td></tr>'+
+					'<tr><td class="warningRow">Напряж двиг, В</td><td class="value warningRow">3889</td><td class="tableBorder"></td><td>Межфаз напряж, В</td><td class="value">400 410 412</td></tr>'+
+					'<tr><td class="warningRow">Сопр изол, кОм</td><td class="value warningRow">9999</td><td class="tableBorder"></td><td>Вх напряж АВС, В</td><td class="value">220 222 212</td></tr>'+
+					'<tr><td>Активн мощн, кВт</td><td class="value">555.5</td><td class="tableBorder"></td><td>Дисб вх напряж, %</td><td class="value">12.0</td></tr>'+
+					'<tr><td>Полная мощн, кВА</td><td class="value">555.5</td><td class="tableBorder"></td><td>Дав на прием, Мпа</td><td class="value">2.534</td></tr>'+
+					'<tr><td>Коэфф мощности</td><td class="value">0.875</td><td class="tableBorder"></td><td class="errorRow">Темпер двиг, С</td><td class="value errorRow">160.4</td></tr>'+
+				'</table>'+
+			'</div>'+
+			'<div class="wellBlockFooter col-md-12 col-sm-12 col-xs-12">'+
+				'<div class="col-md-4 col-sm-4 col-xs-4 footerPart"><input class="startButton" type="button" value="Пуск"></div>'+
+				'<div class="col-md-4 col-sm-4 col-xs-4 footerPart"><input class="stopButton" type="button" value="Стоп"></div>'+
+				'<div class="col-md-4 col-sm-4 col-xs-4 footerPart"><input class="warningButton" type="button" value="Квитировать"></div>'+
+			'</div>'+
+		'</div>'
+	);
+} 
