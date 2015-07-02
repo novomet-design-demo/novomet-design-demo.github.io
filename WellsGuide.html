@@ -10,6 +10,7 @@
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 		<script src="js/navbar.js"></script>		
 		<script src="js/javascript.js"></script>
+		<script src="js/modal.js"></script>
 	</head>
 	<body>
 		<div class='container-fluid'>
@@ -80,16 +81,82 @@
 				 </div>
 				
 				<article class="col-md-10 col-sm-10 col-xs-11">
+					<div id="oilfield-modal" class="modal fade">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+									<h4 class="modal-title">Изменение данных</h4>
+								</div>
+							<div class="modal-body">
+								<p>
+									Месторождение: <br/>
+									<input type="text"/>
+								</p>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+								<button type="button" class="btn btn-primary">Сохранить изменения</button>
+							</div>
+						  </div>
+						</div>
+					</div>
+					<div id="wellPads-modal" class="modal fade">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+									<h4 class="modal-title">Изменение данных</h4>
+								</div>
+							<div class="modal-body">
+								<p>
+									Куст: <br/>
+									<input type="text"/>
+								</p>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+								<button type="button" class="btn btn-primary">Сохранить изменения</button>
+							</div>
+						  </div>
+						</div>
+					</div>
+					<div id="wells-modal" class="modal fade">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+									<h4 class="modal-title">Изменение данных</h4>
+								</div>
+							<div class="modal-body">
+								<p>
+									Скважина: <br/>
+									<input type="text"/>
+								</p>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+								<button type="button" class="btn btn-primary">Сохранить изменения</button>
+							</div>
+						  </div>
+						</div>
+					</div>
 					<div class="page_content">
 						<div class="col-md-12 col-sm-12 row">
 							<div class="col-md-6 col-sm-6" id="left-col">
 								<div class="wrap">
 									<div class="h4">Месторождения</div>
 									<div class="topMenu">
-										<div class="add"></div><div class="edit"></div><div class="delete"></div><div class="save"></div>
+										<div class="add"></div><div class="edit" onclick="showOilfieldModal()"></div><div class="delete"></div><div class="save"></div>
 									</div>
 									<div class="field">
-										
+										<table class="table table-striped table-hover">
+											<thead><tr style="background: rgb(211, 211, 211); cursor:auto !important"><th>№</th><th>Месторождение</th></tr></thead>
+											<tbody>
+												<tr onclick="selectOilfieldRow(this)"><td>1</td><td>Месторождение 1</td></tr>
+												<tr onclick="selectOilfieldRow(this)"><td>2</td><td>Месторождение 2</td></tr>
+											</tbody>
+										</table>
 									</div>
 								</div>
 							</div>
@@ -98,18 +165,34 @@
 									<div class="wrap">
 										<div class="h4">Кусты скважин</div>
 										<div class="topMenu">
-											<div class="add"></div><div class="edit"></div><div class="delete"></div><div class="save"></div>
+											<div class="add"></div><div class="edit" onclick="showWellPadsModal()"></div><div class="delete"></div><div class="save"></div>
 										</div>
-										<div class="field"></div>
+										<div class="field">
+											<table class="table table-striped table-hover">
+												<thead><tr style="background: rgb(211, 211, 211); cursor:auto !important"><th>№</th><th>Куст</th></tr></thead>
+												<tbody>
+													<tr onclick="selectWellPadsRow(this)"><td>1</td><td>Куст 1</td></tr>
+													<tr onclick="selectWellPadsRow(this)"><td>2</td><td>Куст 2</td></tr>
+												</tbody>
+											</table>
+										</div>
 									</div>
 								</div>
 								<div class="col-md-12 col-sm-12" id="wells">
 									<div class="wrap">
 										<div class="h4">Скважины</div>
 										<div class="topMenu">
-											<div class="add"></div><div class="edit"></div><div class="delete"></div><div class="save"></div>
+											<div class="add"></div><div class="edit" onclick="showWellsModal()"></div><div class="delete"></div><div class="save"></div>
 										</div>
-										<div class="field"></div>
+										<div class="field">
+											<table class="table table-striped table-hover">
+												<thead><tr style="background: rgb(211, 211, 211); cursor:auto !important"><th>№</th><th>Куст</th></tr></thead>
+												<tbody>
+													<tr onclick="selectWellsRow(this)"><td>1</td><td>Скважина 1</td></tr>
+													<tr onclick="selectWellsRow(this)"><td>2</td><td>Скважина 2</td></tr>
+												</tbody>
+											</table>
+										</div>
 									</div>
 								</div>
 							</div>

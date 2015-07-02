@@ -242,3 +242,34 @@ function ust(item){
 	);
 	getContentSize();
 }
+
+function showOilfieldModal(){
+	if($('.selectedOilfieldRow').size())
+		$('#oilfield-modal').modal('show');
+}
+
+function showWellPadsModal(){
+	if($('.selectedWellPadsRow').size())
+		$('#wellPads-modal').modal('show');
+}
+
+function showWellsModal(){
+	if($('.selectedWellsRow').size())
+		$('#wells-modal').modal('show');
+}
+
+function selectOilfieldRow(item){
+	$('tr').removeClass('selectedOilfieldRow');
+	$(item).addClass('selectedOilfieldRow');
+}
+
+function selectWellPadsRow(item){
+	$('tr').removeClass('selectedWellPadsRow');
+	$(item).addClass('selectedWellPadsRow');
+}
+
+function selectWellsRow(item){
+	$('tr').removeClass('selectedWellsRow');
+	$(item).addClass('selectedWellsRow');
+}
+

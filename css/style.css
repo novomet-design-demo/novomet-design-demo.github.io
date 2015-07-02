@@ -736,3 +736,18 @@ a{
 	background: rgb(90, 150, 220) !important;
 	color: #fff;
 }
+
+.field tr:hover{
+	cursor: pointer;
+}
+
+.selectedOilfieldRow, .selectedWellPadsRow, .selectedWellsRow{
+	background:  rgb(210, 226, 244) !important;
+}
+
+.modal-body input{
+	width: 100%;
+	border-radius: 6px;
+	border: 1px solid rgb(173, 173, 173);
+	padding: 6px;
+}
