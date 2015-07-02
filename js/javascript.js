@@ -142,14 +142,16 @@ function wellToHtml(){
 } 
 
 function objectInformation(){
-	$('.page_content').html('<div class="tabs"><div class="selected-tab">Данные</div><div>Уставки</div><div>Архив</div><div>Информация</div><div>Загр. файлы</div></div><div class="panel col-md-12 row information"></div>');
-	$('.panel').html(informationToHtml());
-	getContentSize();
+	$('.page_content').html('<div class="tabs"><div id="data" onclick="information(this)">Данные</div><div onclick="ust(this)">Уставки</div><div>Архив</div><div>Информация</div><div>Загр. файлы</div></div><div class="panel col-md-12 row information"></div>');
+	information('#data');
 }
 
-function informationToHtml(){
-	return(
-		'<div class="col-md-12 row information">'+
+function information(item){
+	$('.panel').addClass('information');
+	$('.tabs div').removeClass('selected-tab');
+	$(item).addClass('selected-tab');
+	$('.panel').html(
+		'<div class="col-md-12 row">'+
 				'<div class="col-md-10">'+
 					'<div class="wellBlockHeader col-md-12 col-sm-12 col-xs-12"> Векторнефть > Призабойненское > Куст 123 > Скважина 319</td></div>'+
 					'<div class="wellBlockContent col-md-12 col-sm-12 col-xs-12">'+
@@ -182,11 +184,14 @@ function informationToHtml(){
 				'</div>'+
 		'</div>'
 	);
+	getContentSize();
 }
 
-function ustToHtml(){
-	return(
-		'<div class="panel col-md-12">'+
+function ust(item){
+	$('.panel').removeClass('information');
+	$('.tabs div').removeClass('selected-tab');
+	$(item).addClass('selected-tab');
+	$('.panel').html(
 			'<div class="col-md-3">'+
 				'<div class="well">'+
 					'<ul class="nav nav-list">'+
@@ -233,7 +238,7 @@ function ustToHtml(){
 				'</div>'+
 			'</div>'+
 			'<div class="col-md-9">'+
-			'</div>'+
 		'</div>'
 	);
+	getContentSize();
 }
