@@ -3,6 +3,7 @@ body {
 	margin: 0px; 
 	padding: 0px; 
 	font-family: sans-serif;
+	background: rgb(220, 220, 200);
 }
 #content, container-fluid, body{
 	min-width: 314px;
@@ -206,7 +207,7 @@ article{
 
 .page_content{
 	padding: 6px;
-	height:100%;
+	//height:100%;
 }
 
 .table{
@@ -362,7 +363,9 @@ article{
 	    white-space: normal;
 	}
 	#slide-nav {
-	    border-top: 0
+	    border-top: 0;
+		height: 100%;
+		background: linear-gradient(rgb(90, 150, 220), rgb(10,70,140));
 	}
 	#slide-nav.navbar-inverse #slidemenu {
 	    //background: #333
@@ -713,7 +716,9 @@ a{
 .rightCol input[type="button"]{
 	margin-bottom: 6px;
 }
-.tabs{margin-left: 6px;}
+.tabs{
+	margin-left: 6px;
+}
 .tabs div{
 	display:inline-block;
 	float: left;
@@ -750,4 +755,17 @@ a{
 	border-radius: 6px;
 	border: 1px solid rgb(173, 173, 173);
 	padding: 6px;
+}
+
+.selectedSetpoint{
+	background: rgb(90, 150, 220) !important;
+	color: #fff !important;
+}
+
+.panel{
+	min-height: 406px !important;
+}
+
+.leftTd{
+	width: 200px;
 }

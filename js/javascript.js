@@ -21,8 +21,8 @@ function getContentSize(){
 		}
 		$('aside').css({height: getHeight()});
 		$('article').css({height: getHeight()});
-		$('#aside_button').css({height: getHeight()});
-		$('#slide-nav').css({height: getHeight(), background: 'linear-gradient(rgb(90, 150, 220), rgb(10,70,140))'});
+		$('#slide-nav').css({height: getHeight()});
+		
 	}
 	if($('#left-col').height()>$('#right-col').height()){
 		$('#right-col').css({height: $('#left-col').height()});
@@ -62,6 +62,7 @@ function getHeight(){
 function setColsSize(){
 	$('aside').height('100%');
 	$('article').height('100%');
+	$('#slide-nav').height('100%');
 }
 
 function tableToBlocks(){
@@ -142,7 +143,14 @@ function wellToHtml(){
 } 
 
 function objectInformation(){
-	$('.page_content').html('<div class="tabs"><div id="data" onclick="information(this)">Данные</div><div onclick="ust(this)">Уставки</div><div>Архив</div><div>Информация</div><div>Загр. файлы</div></div><div class="panel col-md-12 row information"></div>');
+	$('.page_content').html(
+		'<div class="tabs col-md-12 col-sm-12 col-xs-11">'+
+			'<div id="data" onclick="information(this)">Данные</div>'+
+			'<div onclick="setpoints(this)">Уставки</div>'+
+			'<div onclick="archive(this)">Архив</div>'+
+			'<div onclick="inf(this)">Информация</div>'+
+			'<div onclick="downloads(this)">Загр. файлы</div>'+
+		'</div><div class="panel col-md-12 col-sm-12 col-xs-11  row information"></div>');
 	information('#data');
 }
 
@@ -187,7 +195,7 @@ function information(item){
 	getContentSize();
 }
 
-function ust(item){
+function setpoints(item){
 	$('.panel').removeClass('information');
 	$('.tabs div').removeClass('selected-tab');
 	$(item).addClass('selected-tab');
@@ -196,48 +204,89 @@ function ust(item){
 				'<div class="well">'+
 					'<ul class="nav nav-list">'+
 						'<li class="nav-header">Оборудование</li>'+
-						'<li class="active">Станция</li>'+
-						'<li>Двигатель</li>'+
-						'<li>ТМПН</li>'+
-						'<li>ЧРП</li>'+
-						'<li>Тип ТМС</li>'+
+						'<li onclick="selectSetpoint(this)">Станция</li>'+
+						'<li onclick="selectSetpoint(this)">Двигатель</li>'+
+						'<li onclick="selectSetpoint(this)">ТМПН</li>'+
+						'<li onclick="selectSetpoint(this)">ЧРП</li>'+
+						'<li onclick="selectSetpoint(this)">Тип ТМС</li>'+
 					'</ul>'+
 					'<ul class="nav nav-list">'+
 						'<li class="nav-header">Защиты</li>'+
 						'<li class="not-selected">'+
 							'<ul class="nav nav-list">'+
 								'<li class="nav-header">Защиты по сети</li>'+
-								'<li>Превышение питания</li>'+
-								'<li>Снижение питания</li>'+
-								'<li>Дисбаланс напряжения</li>'+
+								'<li onclick="selectSetpoint(this)">Превышение питания</li>'+
+								'<li onclick="selectSetpoint(this)">Снижение питания</li>'+
+								'<li onclick="selectSetpoint(this)">Дисбаланс напряжения</li>'+
 							'</ul>'+
 						'</li>'+
 						'<li class="not-selected">'+
 							'<ul class="nav nav-list">'+
 								'<li class="nav-header">Защиты двигателя</li>'+
-								'<li>Перегруз</li>'+
-								'<li>Недогруз</li>'+
-								'<li>Турбинное вращение</li>'+
+								'<li onclick="selectSetpoint(this)">Перегруз</li>'+
+								'<li onclick="selectSetpoint(this)">Недогруз</li>'+
+								'<li onclick="selectSetpoint(this)">Турбинное вращение</li>'+
 							'</ul>'+
 						'</li>'+
 						'<li class="not-selected">'+
 							'<ul class="nav nav-list">'+
 								'<li class="nav-header">Защиты по ТМС</li>'+
-								'<li>Давление на приеме насоса</li>'+
-								'<li>Перегрев двигателя</li>'+
-								'<li>Сопротивление изоляции</li>'+
+								'<li onclick="selectSetpoint(this)">Давление на приеме насоса</li>'+
+								'<li onclick="selectSetpoint(this)">Перегрев двигателя</li>'+
+								'<li onclick="selectSetpoint(this)">Сопротивление изоляции</li>'+
 							'</ul>'+
 						'</li>'+
 						'<li class="not-selected">'+
 							'<ul class="nav nav-list">'+
 								'<li class="nav-header">Защиты дополнительные</li>'+
-								'<li>Защита ЧРП</li>'+
+								'<li onclick="selectSetpoint(this)">Защита ЧРП</li>'+
 							'</ul>'+
 						'</li>'+
 					'</ul>'+
 				'</div>'+
 			'</div>'+
 			'<div class="col-md-9">'+
+		'</div>'
+	);
+	getContentSize();
+}
+
+function archive(item){
+	$('.panel').removeClass('information');
+	$('.tabs div').removeClass('selected-tab');
+	$(item).addClass('selected-tab');
+	$('.panel').html("");
+	getContentSize();
+}
+
+function inf(item){
+	$('.panel').removeClass('information');
+	$('.tabs div').removeClass('selected-tab');
+	$(item).addClass('selected-tab');
+	$('.panel').html("");
+	getContentSize();
+}
+
+function downloads(item){
+	$('.panel').removeClass('information');
+	$('.tabs div').removeClass('selected-tab');
+	$(item).addClass('selected-tab');
+	$('.panel').html(
+		'<div class="col-md-12 col-sm-12 col-xs-12"><button type="button" class="btn btn-primary btn-md">Запросить архив</button></div>'+
+		'<div class="col-md-12 col-sm-12 col-xs-12" style="margin-top: 6px">'+
+			'<table class="table table-bordered">'+
+				'<tr><td class="leftTd">12.12.2012 13:14:15</td><td>'+
+					'<div class="progress">'+
+						'<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">'+
+							'60%'+
+						'</div>'+
+					'</div></td>'+
+				'</tr>'+
+				'<tr><td class="leftTd">10.11.2012 10:11:12</td><td>Загружен</td></tr>'+
+				'<tr><td class="leftTd"></td><td></td></tr>'+
+				'<tr><td class="leftTd"></td><td></td></tr>'+
+				'<tr><td class="leftTd"></td><td></td></tr>'+
+			'</table>'+
 		'</div>'
 	);
 	getContentSize();
@@ -273,3 +322,12 @@ function selectWellsRow(item){
 	$(item).addClass('selectedWellsRow');
 }
 
+function selectObject(element){
+	$('tr').removeClass('selectedElement');
+	$(element).addClass('selectedElement');
+}
+
+function selectSetpoint(item){
+	$('li').removeClass('selectedSetpoint');
+	$(item).addClass('selectedSetpoint');
+}
