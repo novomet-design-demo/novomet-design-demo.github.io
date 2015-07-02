@@ -206,6 +206,7 @@ article{
 
 .page_content{
 	padding: 6px;
+	height:100%;
 }
 
 .table{
@@ -622,4 +623,116 @@ a{
 
 #wellPads, #wells{
 	height: 50%;
+}
+
+.table_header div{
+	float: right;
+}
+
+.table_header td{
+	padding: 0px !important;
+}
+
+.table_header_text{
+	padding: 8px 0 8px 8px !important;
+	float: left !important;
+}
+
+.dropdown_button{
+	display: block;
+	height: 36px;
+	width: 36px;
+	background: url(../img/dropdownarrow.png) no-repeat;
+	-moz-background-size: 100%; 
+    -webkit-background-size: 100%; 
+    -o-background-size: 100%; 
+    background-size: 100%;
+}
+
+.table_header button{
+	padding: 0px !important;
+	border: 0px !important;
+	background: transparent;
+}
+
+.dropdown-menu button{
+	height: 31px;
+	width: 31px;
+	background: url(../img/search.png) no-repeat;
+	-moz-background-size: 100%; 
+    -webkit-background-size: 100%; 
+    -o-background-size: 100%; 
+    background-size: 100%;
+}
+
+.dropdown-search{
+	height: 41px;
+	background: #fff;
+}
+
+.dropdown-menu div{
+	height: 36px;
+}
+.dropdown-menu input[type="text"]{
+	width: calc(100% - 31px);
+	height: 31px;
+	border-radius: 3px;
+	border: 1px solid #C8C8C8;
+	
+}
+
+.dropdown-menu input{
+	display: inline-block;
+	float: left;
+}
+
+.dropdown-search{
+	padding: 5px;
+}
+
+.dropdown-item{
+	padding: 5px;
+	border-top: 1px solid rgb(200, 200, 200);
+	background: rgb(245, 245, 245);
+	cursor: pointer;
+}
+
+.dropdown-item:hover{
+	background: rgb(225, 225, 225);
+}
+
+.information{
+	background: #f5f5f5 !important;
+}
+
+.rightCol{
+	margin-left: 6px;
+	height: 100%;
+}
+
+.rightCol input[type="button"]{
+	margin-bottom: 6px;
+}
+.tabs{margin-left: 6px;}
+.tabs div{
+	display:inline-block;
+	float: left;
+	height:  36px;
+	width: 120px;
+	padding: 6px;
+	font-size: 11pt;
+	background: rgb(229, 229, 229);
+	border: 1px solid rgb(146, 156, 160);
+	text-align: center;
+	border-radius: 6px 6px 0px 0px;
+	cursor: pointer;
+}
+
+.tabs div:hover{
+	background: rgb(209, 209, 209);
+}
+
+.selected-tab{
+	background: rgb(90, 150, 220) !important;
+	color: #fff;
 }

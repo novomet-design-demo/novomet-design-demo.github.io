@@ -10,6 +10,7 @@
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 		<script src="js/navbar.js"></script>		
 		<script src="js/javascript.js"></script>
+		<script src="js/dropdown.js"></script>
 	</head>
 	<body>
 		<div class='container-fluid'>
@@ -81,15 +82,66 @@
 				
 				<article class="col-md-10 col-sm-10 col-xs-11">
 					<div class="page_content">
-						<div>
-							<div class="table-responsive">
 							<table class="table table-striped table-bordered table-hover" ondblclick="tableToBlocks()">
 								<tr class="table_header">
-									<td>Компания</td>
-									<td>Месторождение</td>
-									<td>Куст</td>
-									<td>Скважина</td>
-									<td>Состояние</td>
+									<td><div class="table_header_text">Компания</div>
+										<div class="btn-group">
+											<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="dropdown_button"></span></button>
+											<ul class="dropdown-menu" role="menu">
+												<li class="dropdown-search"><div  class="btn-group"><input type="text"><button></button></div></li>
+												<li class="dropdown-item">Векторнефть</li>
+												<li class="dropdown-item">Тест 1</li>
+												<li class="dropdown-item">Тест 2</li>
+												<li class="dropdown-item">Тест 3</li>
+											</ul>
+										 </div>
+									</td>
+									<td><div class="table_header_text">Месторождение</div>
+										<div class="btn-group">
+											<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="dropdown_button"></span></button>
+											<ul class="dropdown-menu" role="menu">
+												<li class="dropdown-search"><div  class="btn-group"><input type="text"><button></button></div></li>
+												<li class="dropdown-item">Призабойненское</li>
+												<li class="dropdown-item">Тест 1</li>
+												<li class="dropdown-item">Тест 2</li>
+												<li class="dropdown-item">Тест 3</li>
+											</ul>
+										 </div>
+									</td>
+									<td><div class="table_header_text">Куст</div>
+										<div class="btn-group">
+											<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="dropdown_button"></span></button>
+											<ul class="dropdown-menu" role="menu">
+												<li class="dropdown-search"><div  class="btn-group"><input type="text"><button></button></div></li>
+												<li class="dropdown-item">Куст 123</li>
+												<li class="dropdown-item">Тест 1</li>
+												<li class="dropdown-item">Тест 2</li>
+												<li class="dropdown-item">Тест 3</li>
+											</ul>
+										 </div>
+									</td>
+									<td><div class="table_header_text">Скважина</div>
+										<div class="btn-group">
+											<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="dropdown_button"></span></button>
+											<ul class="dropdown-menu" role="menu">
+												<li class="dropdown-search"><div  class="btn-group"><input type="text"><button></button></div></li>
+												<li class="dropdown-item">Скважина 319</li>
+												<li class="dropdown-item">Тест 1</li>
+												<li class="dropdown-item">Тест 2</li>
+												<li class="dropdown-item">Тест 3</li>
+											</ul>
+										 </div>
+									</td>
+									<td><div class="table_header_text">Состояние</div>
+										<div class="btn-group">
+											<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="dropdown_button"></span></button>
+											<ul class="dropdown-menu" role="menu">
+												<li class="dropdown-item">Работает</li>
+												<li class="dropdown-item">Нет ответа</li>
+												<li class="dropdown-item">Остановлена</li>
+											</ul>
+										 </div>
+									</td>
 								</tr>
 								<tr class="well-success">
 									<td>Векторнефть</td>
@@ -120,9 +172,6 @@
 									<td>Работает</td>
 								</tr>
 							</table>
-							</div>
-						</div>
-					
 					</div>
 				</article>
 			</div>

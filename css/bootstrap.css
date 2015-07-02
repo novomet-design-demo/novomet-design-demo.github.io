@@ -3059,27 +3059,27 @@ fieldset[disabled] a.btn {
   pointer-events: none;
 }
 .btn-default {
-  color: #333;
-  background-color: #fff;
-  border-color: #ccc;
+  //color: #333;
+ // background-color: #fff;
+ // border-color: #ccc;
 }
 .btn-default:focus,
 .btn-default.focus {
-  color: #333;
-  background-color: #e6e6e6;
-  border-color: #8c8c8c;
+  //color: #333;
+  //background-color: #e6e6e6;
+  //border-color: #8c8c8c;
 }
 .btn-default:hover {
-  color: #333;
-  background-color: #e6e6e6;
-  border-color: #adadad;
+  //color: #333;
+  //background-color: #e6e6e6;
+  //border-color: #adadad;
 }
 .btn-default:active,
 .btn-default.active,
 .open > .dropdown-toggle.btn-default {
-  color: #333;
-  background-color: #e6e6e6;
-  border-color: #adadad;
+  //color: #333;
+  //background-color: #e6e6e6;
+  //border-color: #adadad;
 }
 .btn-default:active:hover,
 .btn-default.active:hover,
@@ -3576,12 +3576,13 @@ tbody.collapse.in {
 .dropdown-menu {
   position: absolute;
   top: 100%;
-  left: 0;
+  //left: 0;
+  right: 0;
   z-index: 1000;
   display: none;
   float: left;
-  min-width: 160px;
-  padding: 5px 0;
+  min-width: 200px;
+  padding: 0px;
   margin: 2px 0 0;
   font-size: 14px;
   text-align: left;
