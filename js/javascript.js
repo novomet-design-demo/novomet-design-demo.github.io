@@ -134,9 +134,9 @@ function wellToHtml(){
 				'</table>'+
 			'</div>'+
 			'<div class="wellBlockFooter col-md-12 col-sm-12 col-xs-12">'+
-				'<div class="col-md-4 col-sm-4 col-xs-4 footerPart"><input class="startButton" type="button" value="Пуск"></div>'+
-				'<div class="col-md-4 col-sm-4 col-xs-4 footerPart"><input class="stopButton" type="button" value="Стоп"></div>'+
-				'<div class="col-md-4 col-sm-4 col-xs-4 footerPart"><input class="warningButton" type="button" value="Квитировать"></div>'+
+				'<div class="col-md-4 col-sm-4 col-xs-4 footerPart"><input class="startButton" type="button" value="Пуск"  onclick="showWarningModal(\'start\')"></div>'+
+				'<div class="col-md-4 col-sm-4 col-xs-4 footerPart"><input class="stopButton" type="button" value="Стоп" onclick="showWarningModal(\'stop\')"></div>'+
+				'<div class="col-md-4 col-sm-4 col-xs-4 footerPart"><input class="warningButton" type="button" value="Квитировать"  onclick="showWarningModal(\'warning\')"></div>'+
 			'</div>'+
 		'</div>'
 	);
@@ -179,9 +179,9 @@ function information(item){
 						'</table>'+
 					'</div>'+
 					'<div class="wellBlockFooter col-md-12 col-sm-12 col-xs-12">'+
-						'<div class="col-md-4 col-sm-4 col-xs-4 footerPart"><input class="startButton" type="button" value="Пуск"></div>'+
-						'<div class="col-md-4 col-sm-4 col-xs-4 footerPart"><input class="stopButton" type="button" value="Стоп"></div>'+
-						'<div class="col-md-4 col-sm-4 col-xs-4 footerPart"><input class="warningButton" type="button" value="Квитировать"></div>'+
+						'<div class="col-md-4 col-sm-4 col-xs-4 footerPart"><input class="startButton" type="button" value="Пуск" onclick="showWarningModal(\'start\')"></div>'+
+						'<div class="col-md-4 col-sm-4 col-xs-4 footerPart"><input class="stopButton" type="button" value="Стоп" onclick="showWarningModal(\'stop\')"></div>'+
+						'<div class="col-md-4 col-sm-4 col-xs-4 footerPart"><input class="warningButton" type="button" value="Квитировать"  onclick="showWarningModal(\'warning\')"></div>'+
 					'</div>'+
 				'</div>'+
 				'<div class="col-md-2" style="height: 100%;">'+
@@ -330,4 +330,35 @@ function selectObject(element){
 function selectSetpoint(item){
 	$('li').removeClass('selectedSetpoint');
 	$(item).addClass('selectedSetpoint');
+}
+
+function selectTypeRow(item){
+	$('tr').removeClass('selectedTypeRow');
+	$(item).addClass('selectedTypeRow');
+}
+
+function selectMeasurementParametersRow(item){
+	$('tr').removeClass('selectedMeasurementParametersRow');
+	$(item).addClass('selectedMeasurementParametersRow');
+}
+
+function showWarningModal(action){
+	switch(action){
+		case 'stop':{
+				$('.modal-body p').html("Остановить?");
+				$('.modal-footer button').html('Стоп');
+				break;
+		}
+		case 'start':{
+				$('.modal-body p').html("Запустить?");
+				$('.modal-footer button').html('Старт');
+				break;
+		}
+		case 'warning':{
+				$('.modal-body p').html("Квитировать?");
+				$('.modal-footer button').html('Квитировать');
+				break;
+		}
+	}
+	$('#warning-modal').modal('show');
 }

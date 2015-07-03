@@ -12,6 +12,7 @@
 		<script src="js/javascript.js"></script>
 		<script src="js/dropdown.js"></script>
 		<script src="js/collapse.js"></script>
+		<script src="js/modal.js"></script>
 	</head>
 	<body>
 		<div class='container-fluid'>
@@ -32,7 +33,6 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
      </a>
-    <!--<a class="navbar-brand" href="#">Project name</a>-->
    </div>
 				 <div id="slidemenu">
 								<aside>
@@ -73,7 +73,7 @@
 						<div class="menu-block-title" onclick="leftMenuItemsDisplaying('#guide', this)"><div class="arrow visible"></div><div class="block-title-text">Справочники</div></div>
 						<div class="menu-block-content" id="guide" display="show">
 							<div class="link" onclick="select('WellsGuide.html')">Скважины</div>	
-							<div class="link" onclick="select('#')">Параметры измерений</div>				
+							<div class="link" onclick="select('measurementParameters.html')">Параметры измерений</div>				
 						</div>
 					</div>
 				</aside>
@@ -174,6 +174,24 @@
 								</tr>
 							</table>
 						
+					</div>
+					<div id="warning-modal" class="modal fade">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+									<h4 class="modal-title">Предепреждение</h4>
+								</div>
+							<div class="modal-body">
+								<p>
+									
+								</p>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-primary" data-dismiss="modal"></button>
+							</div>
+						  </div>
+						</div>
 					</div>
 				</article>
 			</div>

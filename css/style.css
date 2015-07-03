@@ -610,7 +610,7 @@ a{
 	height: 41px;
 }
 
-.topMenu, .field{
+.topMenu, .field, .parameter-field{
 	border: 2px solid rgb(173, 173, 173);
 	border-radius: 6px;
 	padding: 3px;
@@ -622,6 +622,18 @@ a{
 	height: auto;
 	position:relative;
 	height: calc(100% - 95px);
+}
+
+.parameter-field{
+	margin-top: 3px;
+	min-height: 82px;
+	height: auto;
+	position:relative;
+	height: calc(100% - 50px);
+}
+
+.wrap hr{
+	border: 1px solid rgb(173, 173, 173);
 }
 
 #wellPads, #wells{
@@ -742,17 +754,17 @@ a{
 	color: #fff;
 }
 
-.field tr:hover{
+.field tr:hover, .parameter-field tr:hover{
 	cursor: pointer;
 }
 
-.selectedOilfieldRow, .selectedWellPadsRow, .selectedWellsRow{
+.selectedOilfieldRow, .selectedWellPadsRow, .selectedWellsRow, .selectedTypeRow, .selectedMeasurementParametersRow{
 	background:  rgb(210, 226, 244) !important;
 }
 
 .modal-body input{
 	width: 100%;
-	border-radius: 6px;
+	border-radius: 3px;
 	border: 1px solid rgb(173, 173, 173);
 	padding: 6px;
 }
@@ -768,4 +780,23 @@ a{
 
 .leftTd{
 	width: 200px;
+}
+
+.valuesRange{
+	background: #fff !important;
+	vertical-align: middle;
+}
+
+.valuesRange tr td{vertical-align: middle !important;}
+
+.valuesRange input{
+	padding: 3px;
+	width: 70px;
+	border-radius: 3px;
+	border: 1px solid rgb(173, 173, 173);;
+}
+
+.valuesRange tr:hover{
+	cursor: auto !important;
+	background: inherit !important;
 }

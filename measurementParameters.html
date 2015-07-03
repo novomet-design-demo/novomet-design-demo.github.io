@@ -10,6 +10,8 @@
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 		<script src="js/navbar.js"></script>		
 		<script src="js/javascript.js"></script>
+		<script src="js/dropdown.js"></script>
+		<script src="js/collapse.js"></script>
 	</head>
 	<body>
 		<div class='container-fluid'>
@@ -30,10 +32,9 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
      </a>
-    <!--<a class="navbar-brand" href="#">Project name</a>-->
    </div>
 				 <div id="slidemenu">
-				<aside>
+								<aside>
 					<div class="menu-user-block">
 						<div id="username">Имя сотрудника</div>
 						<div id="department">Отдел</div>
@@ -64,14 +65,14 @@
 						<div class="menu-block-title" onclick="leftMenuItemsDisplaying('#settings', this)"><div class="arrow visible"></div><div class="block-title-text">Настройки</div></div>
 						<div class="menu-block-content" id="settings" display="show">
 							<div class="link" onclick="select('generalSettings.html')">Общие настройки</div>
-							<div class="link selected" onclick="select('objectParameters.html')">Параметры объектов</div>							
+							<div class="link" onclick="select('objectParameters.html')">Параметры объектов</div>							
 						</div>
 					</div>
 					<div class="menu-block">
 						<div class="menu-block-title" onclick="leftMenuItemsDisplaying('#guide', this)"><div class="arrow visible"></div><div class="block-title-text">Справочники</div></div>
 						<div class="menu-block-content" id="guide" display="show">
 							<div class="link" onclick="select('WellsGuide.html')">Скважины</div>	
-							<div class="link" onclick="select('measurementParameters.html')">Параметры измерений</div>				
+							<div class="link selected" onclick="select('measurementParameters.html')">Параметры измерений</div>				
 						</div>
 					</div>
 				</aside>
@@ -81,54 +82,46 @@
 				
 				<article class="col-md-10 col-sm-10 col-xs-11">
 					<div class="page_content">
-						<div class="panel col-md-12">
-							<div class="col-md-3">
-								<div class="well">
-								<ul class="nav nav-list">
-									<li class="nav-header">Оборудование</li>
-									<li class="active">Станция</li>
-									<li>Двигатель</li>
-									<li>ТМПН</li>
-									<li>ЧРП</li>
-									<li>Тип ТМС</li>
-								</ul>
-								<ul class="nav nav-list">
-									<li class="nav-header">Защиты</li>
-									<li class="not-selected">
-										<ul class="nav nav-list">
-											<li class="nav-header">Защиты по сети</li>
-											<li>Превышение питания</li>
-											<li>Снижение питания</li>
-											<li>Дисбаланс напряжения</li>
-										</ul>
-									</li>
-									<li class="not-selected">
-										<ul class="nav nav-list">
-											<li class="nav-header">Защиты двигателя</li>
-											<li>Перегруз</li>
-											<li>Недогруз</li>
-											<li>Турбинное вращение</li>
-										</ul>
-									</li>
-									<li class="not-selected">
-										<ul class="nav nav-list">
-											<li class="nav-header">Защиты по ТМС</li>
-											<li>Давление на приеме насоса</li>
-											<li>Перегрев двигателя</li>
-											<li>Сопротивление изоляции</li>
-										</ul>
-									</li>
-									<li class="not-selected">
-										<ul class="nav nav-list">
-											<li class="nav-header">Защиты дополнительные</li>
-											<li>Защита ЧРП</li>
-										</ul>
-									</li>
-								</ul>
+						<div class="col-md-12 col-sm-12 row">
+							<div class="col-md-6 col-sm-6" id="left-col">
+								<div class="wrap">
+									<div class="h4">Тип скважины</div>
+									<div class="parameter-field">
+										<table class="table table-striped table-hover">
+											<tbody>
+												<tr onclick="selectTypeRow(this)"><td>Тип 1</td></tr>
+												<tr onclick="selectTypeRow(this)"><td>Тип 2</td></tr>
+												<tr onclick="selectTypeRow(this)"><td>Тип 3</td></tr>
+												<tr onclick="selectTypeRow(this)"><td>Тип 4</td></tr>
+											</tbody>
+										</table>
 									</div>
+								</div>
 							</div>
-							<div class="col-md-9">
-								
+							<div class="col-md-6 col-sm-6" id="right-col">
+								<div class="wrap">
+									<div class="h4">Параметры измерений</div>
+									<div class="parameter-field">
+										<table class="table table-striped table-hover">
+											<thead><tr style="background: rgb(211, 211, 211); cursor:auto !important"><th>Название</th><th>Единица измерения</th></tr></thead>
+											<tbody>
+												<tr onclick="selectMeasurementParametersRow(this)"><td>Входное напряжение</td><td>В</td></tr>
+											</tbody>
+										</table>
+										<br/>
+										<br/>
+										<table class="table table-hover valuesRange">
+											<thead><tr><th  style="background: rgb(211, 211, 211)"  colspan="2">Диапазон значений</th></tr></thead>
+											<tbody>
+												<tr><td>Нормальное(зеленое)</td><td> от <input type="text"/> до<input type="text"/></td></tr>
+												<tr><td>Тревожное(оранжевое)</td><td> от <input type="text"/> до<input type="text"/></td></tr>
+												<tr><td>Критичное(красное)</td><td> от <input type="text"/> до<input type="text"/></td></tr>
+												<tr><td>Среднее(справочное)</td><td> от <input type="text"/> до<input type="text"/></td></tr>
+											</tbody>
+										</table>
+										
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
