@@ -8,6 +8,7 @@
 		<link href="css/style.css" rel="stylesheet">
 		<link href="css/bootstrap.css" rel="stylesheet">
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+		<script src="js/bootstrap.js"></script>
 		<script src="js/navbar.js"></script>		
 		<script src="js/javascript.js"></script>
 	</head>
@@ -46,7 +47,7 @@
 								<div class="error">003</div><div class="warning">002</div><div class="work">001</div>
 							</div>
 						</div>
-						<div class="menu-block-content" id="monitoring" display="show">
+						<div class="collapse in menu-block-content" id="monitoring" display="show">
 							<div class="link" onclick="select('mainPage.html')">Таблица</div>
 							<div class="link" onclick="select('#')">Карта</div>							
 						</div>
@@ -55,21 +56,21 @@
 						<div class="menu-block-title" onclick="leftMenuItemsDisplaying('#analytics', this)">
 							<div class="arrow visible"></div><div class="block-title-text">Аналитика</div>
 						</div>
-						<div class="menu-block-content" id="analytics" display="show">
+						<div class="collapse in menu-block-content" id="analytics" display="show">
 							<div class="link" onclick="select('#')">Отчеты</div>
 							<div class="link" onclick="select('#')">OLAP</div>							
 						</div>
 					</div>
 					<div class="menu-block">
 						<div class="menu-block-title" onclick="leftMenuItemsDisplaying('#settings', this)"><div class="arrow visible"></div><div class="block-title-text">Настройки</div></div>
-						<div class="menu-block-content" id="settings" display="show">
+						<div class="collapse in menu-block-content" id="settings" display="show">
 							<div class="link" onclick="select('generalSettings.html')">Общие настройки</div>
 							<div class="link selected" onclick="select('objectParameters.html')">Параметры объектов</div>							
 						</div>
 					</div>
 					<div class="menu-block">
 						<div class="menu-block-title" onclick="leftMenuItemsDisplaying('#guide', this)"><div class="arrow visible"></div><div class="block-title-text">Справочники</div></div>
-						<div class="menu-block-content" id="guide" display="show">
+						<div class="collapse in menu-block-content" id="guide" display="show">
 							<div class="link" onclick="select('WellsGuide.html')">Скважины</div>	
 							<div class="link" onclick="select('measurementParameters.html')">Параметры измерений</div>				
 						</div>
@@ -86,42 +87,42 @@
 								<div class="well">
 								<ul class="nav nav-list">
 									<li class="nav-header">Оборудование</li>
-									<li class="active">Станция</li>
-									<li>Двигатель</li>
-									<li>ТМПН</li>
-									<li>ЧРП</li>
-									<li>Тип ТМС</li>
+									<li  onclick="selectSetpoint(this)">Станция</li>
+									<li onclick="selectSetpoint(this)">Двигатель</li>
+									<li onclick="selectSetpoint(this)">ТМПН</li>
+									<li onclick="selectSetpoint(this)">ЧРП</li>
+									<li onclick="selectSetpoint(this)">Тип ТМС</li>
 								</ul>
 								<ul class="nav nav-list">
 									<li class="nav-header">Защиты</li>
 									<li class="not-selected">
 										<ul class="nav nav-list">
 											<li class="nav-header">Защиты по сети</li>
-											<li>Превышение питания</li>
-											<li>Снижение питания</li>
-											<li>Дисбаланс напряжения</li>
+											<li onclick="selectSetpoint(this)">Превышение питания</li>
+											<li onclick="selectSetpoint(this)">Снижение питания</li>
+											<li onclick="selectSetpoint(this)">Дисбаланс напряжения</li>
 										</ul>
 									</li>
 									<li class="not-selected">
 										<ul class="nav nav-list">
 											<li class="nav-header">Защиты двигателя</li>
-											<li>Перегруз</li>
-											<li>Недогруз</li>
-											<li>Турбинное вращение</li>
+											<li onclick="selectSetpoint(this)">Перегруз</li>
+											<li onclick="selectSetpoint(this)">Недогруз</li>
+											<li onclick="selectSetpoint(this)">Турбинное вращение</li>
 										</ul>
 									</li>
 									<li class="not-selected">
 										<ul class="nav nav-list">
 											<li class="nav-header">Защиты по ТМС</li>
-											<li>Давление на приеме насоса</li>
-											<li>Перегрев двигателя</li>
-											<li>Сопротивление изоляции</li>
+											<li onclick="selectSetpoint(this)">Давление на приеме насоса</li>
+											<li onclick="selectSetpoint(this)">Перегрев двигателя</li>
+											<li onclick="selectSetpoint(this)">Сопротивление изоляции</li>
 										</ul>
 									</li>
 									<li class="not-selected">
 										<ul class="nav nav-list">
 											<li class="nav-header">Защиты дополнительные</li>
-											<li>Защита ЧРП</li>
+											<li onclick="selectSetpoint(this)">Защита ЧРП</li>
 										</ul>
 									</li>
 								</ul>

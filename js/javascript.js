@@ -41,13 +41,15 @@ function select(path){
 }
 function leftMenuItemsDisplaying(block, arrow){
 	if($(block).attr('display')=='show'){
-		$(block).css('display', 'none');
+		//$(block).css('display', 'none');
+		$(block).collapse('hide');
 		$(block).attr('display', 'withhold');
 		$(arrow).find('.arrow').removeClass('visible');
 		$(arrow).find('.arrow').addClass('withhold');
 	}
 	else if($(block).attr('display')=='withhold'){
-		$(block).css('display', 'inline-block');
+		//$(block).css('display', 'inline-block');
+		$(block).collapse('show');
 		$(block).attr('display', 'show');
 		$(arrow).find('.arrow').removeClass('withhold');
 		$(arrow).find('.arrow').addClass('visible');

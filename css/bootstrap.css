@@ -3533,7 +3533,9 @@ input[type="button"].btn-block {
   display: none;
 }
 .collapse.in {
+	padding-top: 0.1px;
   display: block;
+  height: 100%;
 }
 tr.collapse.in {
   display: table-row;

@@ -8,10 +8,9 @@
 		<link href="css/style.css" rel="stylesheet">
 		<link href="css/bootstrap.css" rel="stylesheet">
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+		<script src="js/bootstrap.js"></script>
 		<script src="js/navbar.js"></script>		
 		<script src="js/javascript.js"></script>
-		<script src="js/dropdown.js"></script>
-		<script src="js/collapse.js"></script>
 		<script src="js/modal.js"></script>
 	</head>
 	<body>
@@ -48,7 +47,7 @@
 								<div class="error">003</div><div class="warning">002</div><div class="work">001</div>
 							</div>
 						</div>
-						<div class="menu-block-content" id="monitoring" display="show">
+						<div class="collapse in menu-block-content" id="monitoring" display="show">
 							<div class="link selected" onclick="select('mainPage.html')">Таблица</div>
 							<div class="link" onclick="select('#')">Карта</div>							
 						</div>
@@ -57,21 +56,21 @@
 						<div class="menu-block-title" onclick="leftMenuItemsDisplaying('#analytics', this)">
 							<div class="arrow visible"></div><div class="block-title-text">Аналитика</div>
 						</div>
-						<div class="menu-block-content" id="analytics" display="show">
+						<div class="collapse in menu-block-content" id="analytics" display="show">
 							<div class="link" onclick="select('#')">Отчеты</div>
 							<div class="link" onclick="select('#')">OLAP</div>							
 						</div>
 					</div>
 					<div class="menu-block">
 						<div class="menu-block-title" onclick="leftMenuItemsDisplaying('#settings', this)"><div class="arrow visible"></div><div class="block-title-text">Настройки</div></div>
-						<div class="menu-block-content" id="settings" display="show">
+						<div class="collapse in menu-block-content" id="settings" display="show">
 							<div class="link" onclick="select('generalSettings.html')">Общие настройки</div>
 							<div class="link" onclick="select('objectParameters.html')">Параметры объектов</div>							
 						</div>
 					</div>
 					<div class="menu-block">
 						<div class="menu-block-title" onclick="leftMenuItemsDisplaying('#guide', this)"><div class="arrow visible"></div><div class="block-title-text">Справочники</div></div>
-						<div class="menu-block-content" id="guide" display="show">
+						<div class="collapse in menu-block-content" id="guide" display="show">
 							<div class="link" onclick="select('WellsGuide.html')">Скважины</div>	
 							<div class="link" onclick="select('measurementParameters.html')">Параметры измерений</div>				
 						</div>

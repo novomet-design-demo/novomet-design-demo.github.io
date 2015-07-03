@@ -100,7 +100,7 @@ aside ul{
 	border: 2px solid rgb(9, 60, 120);
 }
 
-.menu-block-title, .menu-block-content{	
+.menu-block-title/*, .menu-block-content*/{	
 	display: inline-block;
 	width: 100%;
 }
@@ -111,11 +111,11 @@ aside ul{
 	padding-bottom: 2px;
 	cursor: pointer;
 }
-
+/*
 .menu-block-content{
 	background: rgb(239, 239, 239);
 	color: rgb(9, 60, 120)
-}
+}*/
 
 .menu-user-block{
 	padding: 6px;
@@ -799,4 +799,9 @@ a{
 .valuesRange tr:hover{
 	cursor: auto !important;
 	background: inherit !important;
+}
+
+.menu-block-content{
+	background: rgb(239, 239, 239);
+	color: rgb(9, 60, 120);
 }
